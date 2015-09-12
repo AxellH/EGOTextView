@@ -246,6 +246,7 @@ static CGFloat AttachmentRunDelegateGetWidth(void *refCon) {
     UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [self addGestureRecognizer:singleTap];
     [singleTap release];
+    [_textContentView becomeFirstResponder];
 }
 
 - (id)initWithFrame:(CGRect)frame {
