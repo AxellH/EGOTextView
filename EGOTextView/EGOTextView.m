@@ -409,7 +409,8 @@ static CGFloat AttachmentRunDelegateGetWidth(void *refCon) {
 }
 
 - (void)setDelegate:(id<EGOTextViewDelegate>)aDelegate {
-    [super setDelegate:(id<UIScrollViewDelegate>)aDelegate];
+    if (aDelegate)
+        [super setDelegate:(id<UIScrollViewDelegate>)aDelegate];
 
     delegate = aDelegate;
 
