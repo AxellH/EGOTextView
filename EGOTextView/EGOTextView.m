@@ -1507,11 +1507,11 @@ static CGFloat AttachmentRunDelegateGetWidth(void *refCon) {
 
         selectedNSRange.location--;
         selectedNSRange.length = 1;
-
-        [_mutableAttributedString beginEditing];
-        [_mutableAttributedString deleteCharactersInRange:selectedNSRange];
-        [_mutableAttributedString endEditing];
-
+        if (selectedNSRange.location < _mutableAttributedString.length-1) {
+            [_mutableAttributedString beginEditing];
+            [_mutableAttributedString deleteCharactersInRange:selectedNSRange];
+            [_mutableAttributedString endEditing];
+        }
         selectedNSRange.length = 0;
     }
 
